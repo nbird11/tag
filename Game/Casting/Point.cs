@@ -1,4 +1,4 @@
-namespace CSE210_05.Game.Casting
+namespace Tag.Game.Casting
 {
     /// <summary>
     /// <para>A distance from a relative origin (0, 0).</para>
