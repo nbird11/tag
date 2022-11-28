@@ -1,8 +1,8 @@
-using CSE210_05.Game.Casting;
-using CSE210_05.Game.Services;
+using Tag.Game.Casting;
+using Tag.Game.Services;
 
 
-namespace CSE210_05.Game.Scripting
+namespace Tag.Game.Scripting
 {
     /// <summary>
     /// <para>An input action that controls the cycle.</para>
