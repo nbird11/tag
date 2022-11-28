@@ -1,11 +1,11 @@
-## Tag
-This is a game in which one player is 'it' and they have to tag another player!
-There will be a maze to traverse, powerups, and much more!
----
+# Tag
+This is a game in which one player is 'it' and they have to tag another player! There will be a maze to traverse, powerups, and much more!
 
-### Project Structure
+---
+## Project Structure
 The code source files and directories are organized as follows:
 ```
+root                (project root directory)
 +-- Game            (classes source code)
   +-- Casting       (main actor object classes)
   +-- Directing     (program director class)
@@ -17,8 +17,8 @@ The code source files and directories are organized as follows:
 ```
 
 ### Required Tech
-- dotnet 6+
-- Raylib-cs 4.2+
+* dotnet 6+
+* Raylib-cs 4.2+
 
 #### Authors
 - Nathan Bird
