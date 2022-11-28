@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 
-namespace CSE210_05.Game.Scripting
+namespace Tag.Game.Scripting
 {
     /// <summary>
     /// <para>A collection of actions.</para>

@@ -3,7 +3,7 @@ using Tag.Game.Casting;
 using Tag.Game.Services;
 
 
-namespace CSE210_05.Game.Scripting
+namespace Tag.Game.Scripting
 {
     /// <summary>
     /// <para>An update action that moves all the actors.</para>

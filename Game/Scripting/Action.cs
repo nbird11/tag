@@ -1,7 +1,7 @@
 using Tag.Game.Casting;
 
 
-namespace CSE210_05.Game.Scripting 
+namespace Tag.Game.Scripting 
 {
     /// <summary>
     /// <para>A thing that is done.</para>

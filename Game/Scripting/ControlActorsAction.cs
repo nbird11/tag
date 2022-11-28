@@ -51,8 +51,8 @@ namespace Tag.Game.Scripting
                 _direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Cycle cycle = (Cycle)cast.GetFirstActor("cycle1");
-            cycle.TurnHead(_direction);
+            // Cycle cycle = (Cycle)cast.GetFirstActor("cycle1");
+            // cycle.TurnHead(_direction);
 
             // left
             if (_keyboardService.IsKeyDown("j"))
@@ -77,9 +77,6 @@ namespace Tag.Game.Scripting
             {
                 _direction2 = new Point(0, Constants.CELL_SIZE);
             }
-
-            Cycle cycle2 = (Cycle)cast.GetFirstActor("cycle2");
-            cycle2.TurnHead(_direction2);
 
         }
     }

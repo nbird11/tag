@@ -4,7 +4,7 @@ using Raylib_cs;
 using Tag.Game.Casting;
 
 
-namespace CSE210_05.Game.Services
+namespace Tag.Game.Services
 {
     /// <summary>
     /// <para>Outputs the game state.</para>
