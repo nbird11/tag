@@ -1,9 +1,9 @@
-# Tag
-<p>This is a game in which one player is 'it' and they have to tag another player!
-There will be a maze to traverse, powerups, and much more!</p>
+## Tag
+This is a game in which one player is 'it' and they have to tag another player!
+There will be a maze to traverse, powerups, and much more!
 ---
 
-## Project Structure
+### Project Structure
 The code source files and directories are organized as follows:
 ```
 +-- Game            (classes source code)
@@ -16,11 +16,11 @@ The code source files and directories are organized as follows:
 +-- tag.csproj      (dotnet project file)
 ```
 
-## Required Tech
+### Required Tech
 - dotnet 6+
 - Raylib-cs 4.2+
 
-### Authors
+#### Authors
 - Nathan Bird
 - Joe Olsen
 - Jake Deschamps
