@@ -1,6 +1,6 @@
 # Tag
-This is a game in which one player is 'it' and they have to tag another player!
-There will be a maze to traverse, powerups, and much more!
+<p>This is a game in which one player is 'it' and they have to tag another player!
+There will be a maze to traverse, powerups, and much more!</p>
 ---
 
 ## Project Structure
