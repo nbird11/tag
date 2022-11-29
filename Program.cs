@@ -13,15 +13,18 @@ namespace Tag
             // ADD CAST
             Cast cast = new Cast();
 
+
             // ADD SERVICES
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
 
-            // ADD SCRIPTS
-            Script script = new Script();
-
             // ADD DIRECTOR
             Director director = new Director(videoService);
+
+            // CREATE SCRIPT
+            Script script = new Script();
+            // script.AddAction("input", new InitialDraw());
+            // script.AddAction("update", new ...)
             
             // Start Game
             director.StartGame(cast, script);
