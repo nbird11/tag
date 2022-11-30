@@ -33,7 +33,7 @@ namespace Tag.Game.Directing
             _videoService.OpenWindow();
 
             // This Script Execution only happens once.
-            ExecuteActions("draw", cast, script);
+            ExecuteActions("initialize", cast, script);
 
             while (_videoService.IsWindowOpen())
             {

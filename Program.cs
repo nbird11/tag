@@ -12,7 +12,8 @@ namespace Tag
         {
             // ADD CAST
             Cast cast = new Cast();
-
+            cast.AddActor("player1", new Player());
+            cast.AddActor("player2", new Player());
 
             // ADD SERVICES
             KeyboardService keyboardService = new KeyboardService();
@@ -23,7 +24,7 @@ namespace Tag
 
             // CREATE SCRIPT
             Script script = new Script();
-            // script.AddAction("input", new InitialDraw());
+            // script.AddAction("draw", new InitialDraw());
             // script.AddAction("update", new ...)
             
             // Start Game
