@@ -24,8 +24,13 @@ namespace Tag
 
             // CREATE SCRIPT
             Script script = new Script();
-            // script.AddAction("draw", new InitialDraw());
-            // script.AddAction("update", new ...)
+
+            // TODO:
+            // script.AddAction(Constants.INITIALIZE, new DrawMazeAction());
+            script.AddAction(Constants.INPUT, new ControlActorsAction(keyboardService));
+            script.AddAction(Constants.UPDATE, new MoveActorsAction());
+            script.AddAction(Constants.UPDATE, new HandleCollisionsAction());
+            script.AddAction(Constants.OUTPUT, new DrawActorsAction(videoService));
             
             // Start Game
             director.StartGame(cast, script);
