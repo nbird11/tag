@@ -33,14 +33,14 @@ namespace Tag.Game.Directing
             _videoService.OpenWindow();
 
             // This Script Execution only happens once.
-            ExecuteActions("initialize", cast, script);
+            ExecuteActions(Constants.INITIALIZE, cast, script);
 
             while (_videoService.IsWindowOpen())
             {
                 // These Script Executions happen every tick.
-                ExecuteActions("input", cast, script);
-                ExecuteActions("update", cast, script);
-                ExecuteActions("output", cast, script);
+                ExecuteActions(Constants.INPUT, cast, script);
+                ExecuteActions(Constants.UPDATE, cast, script);
+                ExecuteActions(Constants.OUTPUT, cast, script);
             }
             _videoService.CloseWindow();
         }
