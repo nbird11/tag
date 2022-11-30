@@ -31,8 +31,13 @@ namespace Tag.Game.Directing
         public void StartGame(Cast cast, Script script)
         {
             _videoService.OpenWindow();
+
+            // This Script Execution only happens once.
+            ExecuteActions("draw", cast, script);
+
             while (_videoService.IsWindowOpen())
             {
+                // These Script Executions happen every tick.
                 ExecuteActions("input", cast, script);
                 ExecuteActions("update", cast, script);
                 ExecuteActions("output", cast, script);
