@@ -25,6 +25,11 @@ namespace Tag
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
 
+        public static string INITIALIZE = "initialize";
+        public static string INPUT = "input";
+        public static string UPDATE = "update";
+        public static string OUTPUT = "output";
+
     }
 }
 
