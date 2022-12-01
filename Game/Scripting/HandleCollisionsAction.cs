@@ -21,6 +21,10 @@ namespace Tag.Game.Scripting
 
             return;
         }
+        private bool hasCollided(){
+            
+            return false;
+        }
         public void checkCollision(ref Player player)
         {
 
