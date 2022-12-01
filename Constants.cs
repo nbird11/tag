@@ -25,10 +25,16 @@ namespace Tag
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
 
+        // Scripting categories
         public static string INITIALIZE = "initialize";
         public static string INPUT = "input";
         public static string UPDATE = "update";
         public static string OUTPUT = "output";
+
+        // Casting categories
+        public static string PLAYER1 = "player1";
+        public static string PLAYER2 = "player2";
+        public static string MAZE = "maze";
 
     }
 }

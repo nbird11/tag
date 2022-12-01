@@ -8,6 +8,9 @@ namespace Tag
 {
     public class Program
     {
+        // TODO: Functionality for maze lists
+        // 
+        // public static List<>
 
         // Experimental maze list
         
@@ -21,8 +24,9 @@ namespace Tag
         {
             // ADD CAST
             Cast cast = new Cast();
-            cast.AddActor("player1", new Player());
-            cast.AddActor("player2", new Player());
+            cast.AddActor(Constants.PLAYER1, new Player());
+            cast.AddActor(Constants.PLAYER2, new Player());
+            // cast.AddActor(Constants.MAZE, new Maze());
 
             // ADD SERVICES
             KeyboardService keyboardService = new KeyboardService();
