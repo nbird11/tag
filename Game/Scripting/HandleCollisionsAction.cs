@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Tag.Game.Casting;
 using Raylib_cs;
 
@@ -10,17 +11,17 @@ namespace Tag.Game.Scripting
         {
 
         }
-        private void ResetVerticalPos()
+        private void ResetVerticalPos(ref Player player)
         {
             
             return;
         }
-        private void ResetHorizontalPos()
+        private void ResetHorizontalPos(ref Player player)
         {
 
             return;
         }
-        public void checkCollision()
+        public void checkCollision(ref Player player)
         {
 
             return;
