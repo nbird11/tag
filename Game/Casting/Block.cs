@@ -1,6 +1,10 @@
 using System;
 using Raylib_cs;
 using System.Collections.Generic;
+using static Raylib_cs.Raylib;
+using static Raylib_cs.Color;
+
+
 
 namespace Tag.Game.Casting
 {
@@ -15,6 +19,8 @@ namespace Tag.Game.Casting
         public float length = 0;
         public float width = 0;
         public List<Block> maze;
+
+        public Color color1 = new Color(5,5,5);
 
 
         
@@ -31,6 +37,8 @@ namespace Tag.Game.Casting
         public void drawblock()
         {
             //TODO add the raylib draw rectangle function
+            Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1.useRaylib());
+           // Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1);
 
         }
 

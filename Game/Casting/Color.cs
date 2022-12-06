@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-
 
 namespace Tag.Game.Casting
 {
@@ -64,6 +64,17 @@ namespace Tag.Game.Casting
         {
             return _red;
         }
+
+        public Raylib_cs.Color useRaylib()
+        {
+            Raylib_cs.Color rayColor = new Raylib_cs.Color();
+            rayColor.r = (byte) this.GetRed();
+            rayColor.g = (byte) this.GetGreen();
+            rayColor.b = (byte) this.GetBlue();
+            rayColor.a = (byte) this.GetAlpha();
+            return rayColor;
+        }
+
 
     }
 }
