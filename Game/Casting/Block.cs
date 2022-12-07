@@ -38,15 +38,24 @@ namespace Tag.Game.Casting
 
 
         // METHODS
-        public void drawblock()
+        public void drawblock(List<Block> maze)
         {
             //TODO add the raylib draw rectangle function
-            Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1.useRaylib());
-           // Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1);
+            foreach(Block block in maze)
+            {
+                length = block.length;
+                xCoordinate = block.xCoordinate;
+                yCoordinate = block.yCoordinate;
+                width = block.width;
+            
+            
+                Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1.useRaylib());
+                // Raylib.DrawRectangle((int) xCoordinate, (int) yCoordinate, (int) width, (int) length, color1);
+            }
 
         }
 
-        public void createBlockList(List<List<float>> obstacleList)
+        public List<Block> createBlockList(List<List<float>> obstacleList)
         {
             foreach(List<float> obstacle in obstacleList)
             {
@@ -57,8 +66,11 @@ namespace Tag.Game.Casting
                 SetWidth(obstacle[3]);
                 maze.Add(block);
 
+                
+
 
             }
+            return maze;
         }
 
         public void SetxCoordinate(float xCoordinate)
