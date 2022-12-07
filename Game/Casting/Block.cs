@@ -28,7 +28,11 @@ namespace Tag.Game.Casting
         // CONTRUCTOR
         public Block()
         {
-            
+            // xCoordinate = x;
+            // yCoordinate = y;
+            // length = width;
+            // width = height;
+            // return;
         }
 
 
