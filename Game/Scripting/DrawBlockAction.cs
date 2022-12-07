@@ -59,10 +59,10 @@ namespace Tag.Game.Scripting
 
 
             Block block = new Block();
-            block.createBlockList(maze2);
+            List<Block> blockMaze =block.createBlockList(maze2);
 
-            block.drawblock();
-            // _videoService.ClearBuffer();
+            block.drawblock(blockMaze);
+           // _videoService.ClearBuffer();
             // _videoService.DrawActors(segments1);
             // _videoService.DrawActors(segments2);
             // _videoService.DrawActors(messages);
