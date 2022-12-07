@@ -18,7 +18,7 @@ namespace Tag.Game.Casting
         public float yCoordinate = 0;
         public float length = 0;
         public float width = 0;
-        public List<Block> maze;
+        public List<Block> maze = new List<Block>();
 
         public Color color1 = new Color(5,5,5);
 

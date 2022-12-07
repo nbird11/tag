@@ -62,11 +62,11 @@ namespace Tag.Game.Scripting
             block.createBlockList(maze2);
 
             block.drawblock();
-           // _videoService.ClearBuffer();
+            // _videoService.ClearBuffer();
             // _videoService.DrawActors(segments1);
             // _videoService.DrawActors(segments2);
             // _videoService.DrawActors(messages);
-           // _videoService.FlushBuffer();
+            // _videoService.FlushBuffer();
         }
     }
 }
