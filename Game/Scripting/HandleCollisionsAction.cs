@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tag;
 using Tag.Game.Casting;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
@@ -9,15 +10,17 @@ namespace Tag.Game.Scripting
 {
     public class HandleCollisionsAction : Action
     {
+        List<Block> walls = new List<Block>();
+        public HandleCollisionsAction(List<Actor> surfaces){
+            foreach (Block surface in surfaces){
+                walls.Add(surface);
+            }
+        }
         public void Execute(Cast cast, Script script)
         {
-            // List<Block> walls = 
-            foreach (Player player in cast.GetActors("player1")){
-                // checkCollision(player, )
-            }
-            foreach (Player player in cast.GetActors("player2")){
-
-            }
+            checkCollision((Player) cast.GetActors(Constants.PLAYER1)[0], walls);
+            checkCollision((Player) cast.GetActors(Constants.PLAYER2)[0], walls);
+            
         }
         private Raylib_cs.Rectangle getPlayerRectangle(Player player){
             Raylib_cs.Rectangle  player_size = new Raylib_cs.Rectangle();
@@ -45,7 +48,7 @@ namespace Tag.Game.Scripting
         }
 
 
-        private void ResetVerticalPos(ref Player player, Raylib_cs.Rectangle rectangle)
+        private void ResetVerticalPos(Player player, Raylib_cs.Rectangle rectangle)
         {
             Raylib_cs.Rectangle player_size = getTempXPlayerRectangle(player);
             if (Raylib.CheckCollisionRecs(player_size, rectangle)){
@@ -53,7 +56,7 @@ namespace Tag.Game.Scripting
             }
             return;
         }
-        private void ResetHorizontalPos(ref Player player, Raylib_cs.Rectangle rectangle)
+        private void ResetHorizontalPos(Player player, Raylib_cs.Rectangle rectangle)
         {
             Raylib_cs.Rectangle player_size = getTempYPlayerRectangle(player);
             if (Raylib.CheckCollisionRecs(player_size, rectangle)){
@@ -61,7 +64,7 @@ namespace Tag.Game.Scripting
             }
             return;
         }
-        public void checkCollision(ref Player player, List<Block> walls)
+        public void checkCollision(Player player, List<Block> walls)
         {
             Raylib_cs.Rectangle  player_size = getPlayerRectangle(player);
             Raylib_cs.Rectangle wall = new Raylib_cs.Rectangle();
@@ -71,10 +74,10 @@ namespace Tag.Game.Scripting
                 wall.width = block.length;
                 wall.height = block.width;
                 if (Raylib.CheckCollisionRecs(player_size, wall)){
-                    ResetVerticalPos(ref player, wall);
+                    ResetVerticalPos(player, wall);
                     player_size = getPlayerRectangle(player);
                     if (Raylib.CheckCollisionRecs(player_size, wall)){
-                        ResetHorizontalPos(ref player, wall);
+                        ResetHorizontalPos(player, wall);
                     }
                 }
             }
