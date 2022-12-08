@@ -11,7 +11,13 @@ namespace Tag.Game.Scripting
     {
         public void Execute(Cast cast, Script script)
         {
-            
+            // List<Block> walls = 
+            foreach (Player player in cast.GetActors("player1")){
+                // checkCollision(player, )
+            }
+            foreach (Player player in cast.GetActors("player2")){
+
+            }
         }
         private Raylib_cs.Rectangle getPlayerRectangle(Player player){
             Raylib_cs.Rectangle  player_size = new Raylib_cs.Rectangle();
