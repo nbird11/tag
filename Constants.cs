@@ -36,6 +36,7 @@ namespace Tag
         public static string PLAYER1 = "player1";
         public static string PLAYER2 = "player2";
         public static string MAZE = "maze";
+        public static string BLOCK = "block";
 
     }
 }
