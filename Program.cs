@@ -14,7 +14,7 @@ namespace Tag
             Cast cast = new Cast();
             cast.AddActor(Constants.PLAYER1, new Player());
             cast.AddActor(Constants.PLAYER2, new Player());
-            // cast.AddActor(Constants.MAZE, new Maze());
+            // cast.AddActor(Constants.MAZE, new Maze());           // Currently being added in the DrawBlock class
 
             // ADD SERVICES
             KeyboardService keyboardService = new KeyboardService();
