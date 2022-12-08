@@ -8,6 +8,7 @@ namespace Tag.Game.Casting
         // ATTRIBUTES
         private Point _oldPos;
         private Point _size = new Point(0, 0);
+        private string _boost = "none";
         // CONTRUCTOR
         public Player()
         {
@@ -23,6 +24,8 @@ namespace Tag.Game.Casting
         public Point getOldPos(){
             return _oldPos;
         }
+
+        
 
     }
 
