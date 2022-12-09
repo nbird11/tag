@@ -34,9 +34,6 @@ namespace Tag.Game.Scripting
             _videoService.ClearBuffer();
             _videoService.DrawActor(player1);
             _videoService.DrawActor(player2);
-            // _videoService.DrawActors(segments1);
-            // _videoService.DrawActors(segments2);
-            // _videoService.DrawActors(messages);
             _videoService.FlushBuffer();
         }
     }
