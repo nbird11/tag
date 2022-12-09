@@ -10,14 +10,16 @@ namespace Tag.Game.Casting
         private Point _oldPos;
         private Point _size = new Point(0, 0);
         private string _boost;
+        private bool isIt;
 
         // CONTRUCTOR
-        public Player(Point start, Color color)
+        public Player(Point start, Color color, bool itOrNot)
         {
             this.SetColor(color);
             this.SetPosition(start);
             this.SetText("O");
-            
+            this.isIt = itOrNot;
+
             _boost = "none";
             _oldPos = this.GetPosition();
             return;

@@ -12,8 +12,8 @@ namespace Tag
         {
             // ADD CAST
             Cast cast = new Cast();
-            cast.AddActor(Constants.PLAYER1, new Player(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2), Constants.RED));
-            cast.AddActor(Constants.PLAYER2, new Player(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2), Constants.BLUE));
+            cast.AddActor(Constants.PLAYER1, new Player(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2), Constants.RED, true));
+            cast.AddActor(Constants.PLAYER2, new Player(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2), Constants.BLUE, false));
             // cast.AddActor(Constants.MAZE, new Maze());           // Currently being added in the DrawBlock class
 
             // ADD SERVICES
