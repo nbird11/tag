@@ -19,7 +19,7 @@ namespace Tag.Game.Scripting
         /// </summary>
         public DrawBlockAction(VideoService videoService)
         {
-            //this._videoService = videoService;
+            this._videoService = videoService;
         }
 
         //List<Block> maze1 = new List<Block>();
