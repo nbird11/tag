@@ -10,6 +10,7 @@ namespace Tag.Game.Casting
         private Point _oldPos;
         private Point _size = new Point(0, 0);
         private string _boost;
+
         // CONTRUCTOR
         public Player()
         {
