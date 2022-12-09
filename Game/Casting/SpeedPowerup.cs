@@ -1,6 +1,6 @@
 namespace Tag.Game.Casting
 {
-    public class SpeedPowerup : Powerup
+    public class SpeedPowerup : Actor
     {
         // ATTRIBUTES
         

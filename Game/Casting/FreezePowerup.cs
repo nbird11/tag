@@ -1,11 +1,11 @@
 namespace Tag.Game.Casting
 {
-    public class FreezePowerup : Powerup
+    public class FreezePowerup : Actor
     {
         // ATTRIBUTES
         
 
-        public FreezePowerup()
+        public FreezePowerup(Point position)
         {
         }
 
