@@ -10,17 +10,18 @@ namespace Tag.Game.Casting
         private Point _oldPos;
         private Point _size = new Point(0, 0);
         private string _boost;
-        private bool isIt;
+        private bool _isIt;
 
         // CONTRUCTOR
         public Player(Point start, Color color, bool itOrNot)
         {
+            this.SetVelocity(new Point(0,0));
             this.SetColor(color);
             this.SetPosition(start);
             this.SetText("O");
-            this.isIt = itOrNot;
+            this._isIt = itOrNot;
 
-            _boost = "none";
+            _boost = "none"; // "none" "speed" or "freeze"
             _oldPos = this.GetPosition();
             return;
         }
@@ -44,6 +45,16 @@ namespace Tag.Game.Casting
         public string GetBoost()
         {
             return _boost;
+        }
+
+        public void SetIsIt(bool setIt)
+        {
+            _isIt = setIt;
+        }
+
+        public bool GetItStatus()
+        {
+            return _isIt;
         }
 
     }
