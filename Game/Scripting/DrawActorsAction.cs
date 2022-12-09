@@ -25,13 +25,9 @@ namespace Tag.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             Player player1 = (Player)cast.GetFirstActor("player1");
-            player1.SetText("#");
-            player1.SetColor(Constants.BLUE);
-            player1.SetPosition(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2));
+            
             Player player2 = (Player)cast.GetFirstActor("player2");
-            player2.SetText("O");
-            player2.SetColor(Constants.RED);
-            player2.SetPosition(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2));
+            
 
 
             

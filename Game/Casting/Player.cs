@@ -12,8 +12,12 @@ namespace Tag.Game.Casting
         private string _boost;
 
         // CONTRUCTOR
-        public Player()
+        public Player(Point start, Color color)
         {
+            this.SetColor(color);
+            this.SetPosition(start);
+            this.SetText("O");
+            
             _boost = "none";
             _oldPos = this.GetPosition();
             return;
