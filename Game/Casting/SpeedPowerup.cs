@@ -1,3 +1,5 @@
+using System;
+
 namespace Tag.Game.Casting
 {
     public class SpeedPowerup : Actor
@@ -5,11 +7,21 @@ namespace Tag.Game.Casting
         // ATTRIBUTES
         
 
+        // CONSTRUCTOR
         public SpeedPowerup()
         {
+            SetText("!");
+            SetColor(Constants.YELLOW);
+            Reset();
         }
 
         // METHODS
+        public void Reset()
+        {
+            Random random = new Random();
+            int x = random.Next(Constants.COLUMNS);
+            //int y = 
+        }
         
 
     }

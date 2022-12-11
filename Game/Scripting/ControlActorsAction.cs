@@ -30,42 +30,58 @@ namespace Tag.Game.Scripting
             int isItSpeed1 = 2;
             int isItSpeed2 = 2;
 
+            int boostSpeed1;
+            int boostSpeed2;
+
             Player player1 = (Player)cast.GetFirstActor("player1");
             player1.SetVelocity(new Point(0,0));
             // left
-            if (player1.GetBoost() == "none")
+            
+            if (player1.GetItStatus() == false)
             {
-                if (player1.GetItStatus() == false)
-                {
-                    isItSpeed1 = 0;
-                }
+                isItSpeed1 = 0;
+            }
 
-                if (_keyboardService.IsKeyDown("a"))
-                {
-                    _direction = new Point(-Constants.CELL_SIZE - isItSpeed1, 0);
-                    player1.SetVelocity(_direction);
-                }
+            if (player1.GetBoost() == Constants.SPEED)
+            {
+                boostSpeed1 = 2;
+            }
 
-                // right
-                if (_keyboardService.IsKeyDown("d"))
-                {
-                    _direction = new Point(Constants.CELL_SIZE + isItSpeed1, 0);
-                    player1.SetVelocity(_direction);
-                }
+            else if (player1.GetBoost() == Constants.FREEZE)
+            {
+                boostSpeed1 = 0;
+            }
 
-                // up
-                if (_keyboardService.IsKeyDown("w"))
-                {
-                    _direction = new Point(0, -Constants.CELL_SIZE - isItSpeed1);
-                    player1.SetVelocity(_direction);
-                }
+            else
+            {
+                boostSpeed1 = 1;
+            }
 
-                // down
-                if (_keyboardService.IsKeyDown("s"))
-                {
-                    _direction = new Point(0, Constants.CELL_SIZE + isItSpeed1);
-                    player1.SetVelocity(_direction);
-                }
+            if (_keyboardService.IsKeyDown("a"))
+            {
+                _direction = new Point((-Constants.CELL_SIZE - isItSpeed1)*boostSpeed1, 0);
+                player1.SetVelocity(_direction);
+            }
+
+            // right
+            if (_keyboardService.IsKeyDown("d"))
+            {
+                _direction = new Point((Constants.CELL_SIZE + isItSpeed1)*boostSpeed1, 0);
+                player1.SetVelocity(_direction);
+            }
+
+            // up
+            if (_keyboardService.IsKeyDown("w"))
+            {
+                _direction = new Point(0, (-Constants.CELL_SIZE - isItSpeed1)*boostSpeed1);
+                player1.SetVelocity(_direction);
+            }
+
+            // down
+            if (_keyboardService.IsKeyDown("s"))
+            {
+                _direction = new Point(0, (Constants.CELL_SIZE + isItSpeed1)*boostSpeed1);
+                player1.SetVelocity(_direction);
             }
 
             
@@ -73,40 +89,53 @@ namespace Tag.Game.Scripting
 
             Player player2 = (Player)cast.GetFirstActor("player2");
             player2.SetVelocity(new Point(0,0));
-            if (player2.GetBoost() == "none")
+            
+            if (player2.GetItStatus() == false)
             {
-                if (player2.GetItStatus() == false)
-                {
-                    isItSpeed2 = 0;
-                }
+                isItSpeed2 = 0;
+            }
 
-                // left
-                if (_keyboardService.IsKeyDown("j"))
-                {
-                    _direction2 = new Point(-Constants.CELL_SIZE - isItSpeed2, 0);
-                    player2.SetVelocity(_direction2);
-                }
+            if (player2.GetBoost() == Constants.SPEED)
+            {
+                boostSpeed2 = 2;
+            }
 
-                // right
-                if (_keyboardService.IsKeyDown("l"))
-                {
-                    _direction2 = new Point(Constants.CELL_SIZE + isItSpeed2, 0);
-                    player2.SetVelocity(_direction2);
-                }
+            else if (player1.GetBoost() == Constants.FREEZE)
+            {
+                boostSpeed2 = 0;
+            }
 
-                // up
-                if (_keyboardService.IsKeyDown("i"))
-                {
-                    _direction2 = new Point(0, -Constants.CELL_SIZE - isItSpeed2);
-                    player2.SetVelocity(_direction2);
-                }
+            else
+            {
+                boostSpeed2 = 1;
+            }
 
-                // down
-                if (_keyboardService.IsKeyDown("k"))
-                {
-                    _direction2 = new Point(0, Constants.CELL_SIZE + isItSpeed2);
-                    player2.SetVelocity(_direction2);
-                }
+            // left
+            if (_keyboardService.IsKeyDown("j"))
+            {
+                _direction2 = new Point((-Constants.CELL_SIZE - isItSpeed2)*boostSpeed2, 0);
+                player2.SetVelocity(_direction2);
+            }
+
+            // right
+            if (_keyboardService.IsKeyDown("l"))
+            {
+                _direction2 = new Point((Constants.CELL_SIZE + isItSpeed2)*boostSpeed2, 0);
+                player2.SetVelocity(_direction2);
+            }
+
+            // up
+            if (_keyboardService.IsKeyDown("i"))
+            {
+                _direction2 = new Point(0, (-Constants.CELL_SIZE - isItSpeed2)*boostSpeed2);
+                player2.SetVelocity(_direction2);
+            }
+
+            // down
+            if (_keyboardService.IsKeyDown("k"))
+            {
+                _direction2 = new Point(0, (Constants.CELL_SIZE + isItSpeed2)*boostSpeed2);
+                player2.SetVelocity(_direction2);
             }
         }
     }
