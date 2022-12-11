@@ -8,7 +8,7 @@ namespace Tag.Game.Casting
     {
         // ATTRIBUTES
         private Point _oldPos;
-        private Point _size = new Point(0, 0);
+        private Point _size = new Point(1, 1);
         private string _boost;
         private bool _isIt;
 
