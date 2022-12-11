@@ -16,35 +16,29 @@ namespace Tag.Game.Casting
     public class Maze : Actor
     {
         //attributes
-        public List<Block> maze = new List<Block>();
+        public List<Block> _maze = new List<Block>();
     
         
 
 
         //Methods
 
-        public List<Block> CreateMaze(List<List<float>> obstacleList, Cast cast)
+        public Maze(List<List<float>> obstacleList)
         {
             foreach(List<float> obstacle in obstacleList)
             {
                 Block block = new Block();
                 block.CreateBlock(obstacle);
-                maze.Add(block);
-                
-                
-                
-
+                _maze.Add(block);
             }
-            cast.AddActor(Constants.MAZE, maze);
-            return maze;
         }
 
         public void DrawMaze()
         {
-            foreach(Block block in maze)
+            foreach(Block block in _maze)
             {
                 BeginDrawing();
-                DrawRectangle((int) block.xCoordinate, (int) block.yCoordinate, (int) block.width, (int) block.length, WHITE);
+                DrawRectangle((int) block.xCoordinate, (int) block.yCoordinate, (int) block.length, (int) block.height, WHITE);
 
             }
         }

@@ -14,7 +14,17 @@ namespace Tag
             Cast cast = new Cast();
             cast.AddActor(Constants.PLAYER1, new Player(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2), Constants.RED, true));
             cast.AddActor(Constants.PLAYER2, new Player(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2), Constants.BLUE, false));
-            // cast.AddActor(Constants.MAZE, new Maze());           // Currently being added in the DrawBlock class
+            
+            List<List<float>> obstacleList = new List<List<float>>()
+            {
+                new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
+                new List<float> {100.000000f, 10.000000f, 200.0f, 50.0f},
+                new List<float> {200.000000f, 200.000000f, 200.481277f, 50.323700f},
+                new List<float> {800.0f, 480.0f, 200.0f, 50.0f},
+                new List<float> {800.0f, 10.0f, 200.0f, 50.0f}
+            };
+            
+            cast.AddActor(Constants.MAZE, new Maze(obstacleList));     
 
             // ADD SERVICES
             KeyboardService keyboardService = new KeyboardService();
@@ -31,7 +41,7 @@ namespace Tag
             script.AddAction(Constants.INPUT, new ControlActorsAction(keyboardService));
             script.AddAction(Constants.UPDATE, new MoveActorsAction());
             script.AddAction(Constants.UPDATE, new PlayerCollisionsAction());
-            script.AddAction(Constants.UPDATE, new HandleCollisionsAction(cast.GetActors(Constants.BLOCK)));
+            script.AddAction(Constants.UPDATE, new HandleCollisionsAction((Maze) cast.GetFirstActor(Constants.MAZE)));
             script.AddAction(Constants.OUTPUT, new DrawActorsAction(videoService));
             
             // Start Game

@@ -16,8 +16,8 @@ namespace Tag.Game.Casting
 
         public float xCoordinate = 0;
         public float yCoordinate = 0;
+        public float height = 0;
         public float length = 0;
-        public float width = 0;
         
 
         public Color color1 = new Color(5,5,5);
@@ -42,8 +42,8 @@ namespace Tag.Game.Casting
         {
             xCoordinate = obstacle[0];
             yCoordinate =obstacle[1];
-            width = obstacle[2];
-            length = obstacle[3];
+            length = obstacle[2];
+            height = obstacle[3];
             
             
 
@@ -66,12 +66,12 @@ namespace Tag.Game.Casting
 
         public void Setlength(float length)
         {
-            this.length = length;
+            this.height = length;
         }
 
         public void SetWidth(float width)
         {
-            this.width = width;
+            this.length = width;
         }
 
 

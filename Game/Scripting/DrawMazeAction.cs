@@ -23,20 +23,22 @@ namespace Tag.Game.Scripting
         }
 
         //List<Block> maze1 = new List<Block>();
-        List<List<float>> obstacleList = new List<List<float>>()
-        {
+        // List<List<float>> obstacleList = new List<List<float>>()
+        // {
             
-             new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
-             new List<float> {100.000000f, 10.000000f, 200.394547f, 50.317200f},
-             //new List<float> {499.000000f, 235.000000f, 111.481277f, 291.323700f},
+        //      new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
+        //      new List<float> {100.000000f, 10.000000f, 200.0f, 50.0f},
+        //      new List<float> {200.000000f, 200.000000f, 200.481277f, 50.323700f},
+        //      new List<float> {400.0f, 480.0f, 200.0f, 50.0f},
+        //      new List<float> {400.0f, 10.0f, 200.0f, 50.0f},
+             
              
 
-        };
+        // };
         
         public void Execute(Cast cast, Script script)
         {
-            Maze maze = new Maze();
-            maze.CreateMaze(obstacleList, cast);
+            Maze maze = (Maze)cast.GetFirstActor(Constants.MAZE);
             maze.DrawMaze();
         }
     }
