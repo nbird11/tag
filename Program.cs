@@ -27,7 +27,7 @@ namespace Tag
             Script script = new Script();
 
             // TODO:
-            script.AddAction(Constants.INITIALIZE, new DrawBlockAction(videoService));
+            script.AddAction(Constants.INITIALIZE, new DrawMazeAction(videoService));
             script.AddAction(Constants.INPUT, new ControlActorsAction(keyboardService));
             script.AddAction(Constants.UPDATE, new MoveActorsAction());
             script.AddAction(Constants.UPDATE, new PlayerCollisionsAction());
