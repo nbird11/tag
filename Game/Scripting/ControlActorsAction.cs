@@ -124,7 +124,7 @@ namespace Tag.Game.Scripting
                 }
                 else
                 {
-                    player2.SetFrozenTime(player1.GetFrozenTime() - 1);
+                    player2.SetFrozenTime(player2.GetFrozenTime() - 1);
                     player2.SetColor(Constants.WHITE);
                 }
             }
