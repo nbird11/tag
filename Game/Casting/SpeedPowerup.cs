@@ -8,19 +8,59 @@ namespace Tag.Game.Casting
         private int _freezeSeconds = 2;
 
         // CONSTRUCTOR
-        public SpeedPowerup()
+        public SpeedPowerup(Cast cast)
         {
             SetText("!");
             SetColor(Constants.YELLOW);
-            Reset();
+            Reset(cast);
         }
 
         // METHODS
-        public void Reset()
+        public void Reset(Cast cast)
         {
-            Random random = new Random();
-            int x = random.Next(Constants.COLUMNS);
-            int y = random.Next(Constants.ROWS);
+            Maze maze = (Maze)cast.GetFirstActor(Constants.MAZE);
+            bool foundXSpot = false;
+            bool foundYSpot = false;
+            int x = 100;
+            int y = 200;
+            while (!foundXSpot)
+            {
+                Random random = new Random();
+                x = random.Next(Constants.COLUMNS);
+                bool mazeSpot = false;
+                foreach (Block block in maze)
+                {
+                    if (x >= block.xCoordinate && x <= (block.xCoordinate + block.length))
+                    {
+                        mazeSpot = true;
+                    }
+                }
+                if (mazeSpot == false)
+                {
+                    foundXSpot = true;
+                }
+
+            }
+
+            while (!foundYSpot)
+            {
+                Random random = new Random();
+                y = random.Next(Constants.COLUMNS);
+                bool mazeSpot = false;
+                foreach (Block block in maze)
+                {
+                    if (y >= block.yCoordinate && y <= (block.yCoordinate + block.height))
+                    {
+                        mazeSpot = true;
+                    }
+                }
+                if (mazeSpot == false)
+                {
+                    foundYSpot = true;
+                }
+
+            }
+
             Point position = new Point(x, y);
             position = position.Scale(Constants.CELL_SIZE);
             SetPosition(position);
