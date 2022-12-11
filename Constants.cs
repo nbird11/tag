@@ -38,6 +38,11 @@ namespace Tag
         public static string MAZE = "maze";
         public static string BLOCK = "block";
 
+        // Boost Constants
+        public static string NOBOOST = "none";
+        public static string SPEED = "speed";
+        public static string FREEZE = "freeze";
+
     }
 }
 
