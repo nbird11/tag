@@ -30,6 +30,7 @@ namespace Tag
             script.AddAction(Constants.INITIALIZE, new DrawBlockAction(videoService));
             script.AddAction(Constants.INPUT, new ControlActorsAction(keyboardService));
             script.AddAction(Constants.UPDATE, new MoveActorsAction());
+            script.AddAction(Constants.UPDATE, new PlayerCollisionsAction());
             script.AddAction(Constants.UPDATE, new HandleCollisionsAction(cast.GetActors(Constants.BLOCK)));
             script.AddAction(Constants.OUTPUT, new DrawActorsAction(videoService));
             
