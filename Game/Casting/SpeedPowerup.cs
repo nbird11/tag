@@ -20,7 +20,10 @@ namespace Tag.Game.Casting
         {
             Random random = new Random();
             int x = random.Next(Constants.COLUMNS);
-            //int y = 
+            int y = random.Next(Constants.ROWS);
+            Point position = new Point(x, y);
+            position = position.Scale(Constants.CELL_SIZE);
+            SetPosition(position);
         }
         
 
