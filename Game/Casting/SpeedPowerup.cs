@@ -28,7 +28,7 @@ namespace Tag.Game.Casting
                 Random random = new Random();
                 x = random.Next(Constants.COLUMNS);
                 bool mazeSpot = false;
-                foreach (Block block in maze)
+                foreach (Block block in maze._maze)
                 {
                     if (x >= block.xCoordinate && x <= (block.xCoordinate + block.length))
                     {
@@ -47,7 +47,7 @@ namespace Tag.Game.Casting
                 Random random = new Random();
                 y = random.Next(Constants.COLUMNS);
                 bool mazeSpot = false;
-                foreach (Block block in maze)
+                foreach (Block block in maze._maze)
                 {
                     if (y >= block.yCoordinate && y <= (block.yCoordinate + block.height))
                     {
