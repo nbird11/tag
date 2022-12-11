@@ -26,9 +26,9 @@ namespace Tag.Game.Scripting
         List<List<float>> obstacleList = new List<List<float>>()
         {
             
-             new List<float> {201.000000f, 226.000000f, 100.000000f, 100.000000f},
-             new List<float> {199.000000f, 229.000000f, 150.394547f, 779.317200f},
-             new List<float> {499.000000f, 235.000000f, 111.481277f, 291.323700f},
+             new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
+             new List<float> {100.000000f, 10.000000f, 200.394547f, 50.317200f},
+             //new List<float> {499.000000f, 235.000000f, 111.481277f, 291.323700f},
              
 
         };
@@ -36,7 +36,7 @@ namespace Tag.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             Maze maze = new Maze();
-            maze.CreateMaze(obstacleList);
+            maze.CreateMaze(obstacleList, cast);
             maze.DrawMaze();
         }
     }

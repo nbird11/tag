@@ -13,17 +13,17 @@ namespace Tag.Game.Casting
     /// space.
     /// </para>
     /// </summary>
-    public class Maze
+    public class Maze : Actor
     {
         //attributes
-        List<Block> maze = new List<Block>();
+        public List<Block> maze = new List<Block>();
     
         
 
 
         //Methods
 
-        public List<Block> CreateMaze(List<List<float>> obstacleList)
+        public List<Block> CreateMaze(List<List<float>> obstacleList, Cast cast)
         {
             foreach(List<float> obstacle in obstacleList)
             {
@@ -31,8 +31,11 @@ namespace Tag.Game.Casting
                 block.CreateBlock(obstacle);
                 maze.Add(block);
                 
+                
+                
 
             }
+            cast.AddActor(Constants.MAZE, maze);
             return maze;
         }
 
