@@ -12,6 +12,7 @@ namespace Tag.Game.Casting
         private Point _size = new Point(Constants.CELL_SIZE, Constants.CELL_SIZE);
         private string _boost;
         private bool _isIt;
+        private int _frozenTime;
 
         // CONTRUCTOR
         public Player(Point start, Color color, bool itOrNot)
@@ -21,6 +22,7 @@ namespace Tag.Game.Casting
             this.SetPosition(start);
             this.SetText("O");
             this._isIt = itOrNot;
+            this._frozenTime = 0;
 
             _boost = "none"; // "none" "speed" or "freeze"
             _oldPos = this.GetPosition();
@@ -56,6 +58,16 @@ namespace Tag.Game.Casting
         public bool GetItStatus()
         {
             return _isIt;
+        }
+
+        public int GetFrozenTime()
+        {
+            return _frozenTime;
+        }
+
+        public void SetFrozenTime(int ticks)
+        {
+            _frozenTime = ticks;
         }
 
     }
