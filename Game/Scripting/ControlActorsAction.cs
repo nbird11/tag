@@ -35,8 +35,11 @@ namespace Tag.Game.Scripting
 
             Player player1 = (Player)cast.GetFirstActor("player1");
             player1.SetVelocity(new Point(0,0));
-            // left
-            
+
+            Player player2 = (Player)cast.GetFirstActor("player2");
+            player2.SetVelocity(new Point(0,0));
+
+            // Player 1
             if (player1.GetItStatus() == false)
             {
                 isItSpeed1 = 0;
@@ -50,6 +53,16 @@ namespace Tag.Game.Scripting
             else if (player1.GetBoost() == Constants.FREEZE)
             {
                 boostSpeed1 = 0;
+                if (player1.GetFrozenTime() <= 0)
+                {
+                    player1.SetBoost(Constants.NOBOOST);
+                    player1.SetIsIt(true);
+                    player2.SetIsIt(false);
+                }
+                else
+                {
+                    player1.SetFrozenTime(player1.GetFrozenTime() - 1);
+                }
             }
 
             else
@@ -57,6 +70,7 @@ namespace Tag.Game.Scripting
                 boostSpeed1 = 1;
             }
 
+            //left
             if (_keyboardService.IsKeyDown("a"))
             {
                 _direction = new Point((-Constants.CELL_SIZE - isItSpeed1)*boostSpeed1, 0);
@@ -85,11 +99,7 @@ namespace Tag.Game.Scripting
             }
 
             
-
-
-            Player player2 = (Player)cast.GetFirstActor("player2");
-            player2.SetVelocity(new Point(0,0));
-            
+            // Player 2
             if (player2.GetItStatus() == false)
             {
                 isItSpeed2 = 0;
@@ -103,6 +113,14 @@ namespace Tag.Game.Scripting
             else if (player1.GetBoost() == Constants.FREEZE)
             {
                 boostSpeed2 = 0;
+                if (player2.GetFrozenTime() <= 0)
+                {
+                    player2.SetBoost(Constants.NOBOOST);
+                }
+                else
+                {
+                    player2.SetFrozenTime(player1.GetFrozenTime() - 1);
+                }
             }
 
             else
