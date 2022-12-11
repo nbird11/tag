@@ -11,44 +11,48 @@ namespace Tag.Game.Scripting
     public class HandleCollisionsAction : Action
     {
         List<Raylib_cs.Rectangle> rectangles = new List<Raylib_cs.Rectangle>();
-        public HandleCollisionsAction(List<Actor> surfaces){
-            List<Block> walls = new List<Block>();
-
-            // foreach (Block surface in (List<Block>) surfaces[0].){
-            //     walls.Add(surface);
-            // }
+        public HandleCollisionsAction(Maze maze){
+        
             Raylib_cs.Rectangle block = new Raylib_cs.Rectangle();
-            foreach (Block wall in walls){
+            foreach (Block wall in maze._maze){
                 block.x = wall.xCoordinate;
                 block.y = wall.yCoordinate;
-                block.width = wall.length;
-                block.height = wall.width;
+                block.width = wall.height;
+                block.height = wall.length;
                 rectangles.Add(block);
             }
             return;
         }
         public void Execute(Cast cast, Script script)
         {
-            Raylib_cs.Rectangle  player_size1 = getPlayerRectangle((Player) cast.GetActors(Constants.PLAYER1)[0]);
-            Raylib_cs.Rectangle  player_size2 = getPlayerRectangle((Player) cast.GetActors(Constants.PLAYER2)[0]);
+            Raylib_cs.Rectangle  player_size1 = getPlayerRectangle((Player) cast.GetFirstActor(Constants.PLAYER1));
+            Raylib_cs.Rectangle  player_size2 = getPlayerRectangle((Player) cast.GetFirstActor(Constants.PLAYER2));
+
+            Player player_1 = (Player) cast.GetFirstActor(Constants.PLAYER1);
+            Player player_2 = (Player) cast.GetFirstActor(Constants.PLAYER2);
+
             foreach (Raylib_cs.Rectangle wall in rectangles){
                 if (Raylib.CheckCollisionRecs(player_size1, wall)){
-                    int newY = ResetVerticalPos((Player) cast.GetActors(Constants.PLAYER1)[0], wall);
-                    int newX = ResetHorizontalPos((Player) cast.GetActors(Constants.PLAYER1)[0], wall);
+                    int newY = ResetVerticalPos(player_1, wall);
+                    int newX = ResetHorizontalPos(player_1, wall);
                     
                     Point position = new Point(newX, newY);
-                    cast.GetActors(Constants.PLAYER1)[0].SetPosition(position);
+                    player_1.SetPosition(position);
                 }
                 if (Raylib.CheckCollisionRecs(player_size2, wall)){
-                    int newY = ResetVerticalPos((Player) cast.GetActors(Constants.PLAYER2)[0], wall);
-                    int newX = ResetHorizontalPos((Player) cast.GetActors(Constants.PLAYER2)[0], wall);
+                    int newY = ResetVerticalPos(player_2, wall);
+                    int newX = ResetHorizontalPos(player_2, wall);
+                    
                     Point position = new Point(newX, newY);
-                    cast.GetActors(Constants.PLAYER2)[0].SetPosition(position);
+                    player_2.SetPosition(position);
                 }
+
+                player_1.setOldPos(player_1.GetPosition());
+                player_2.setOldPos(player_2.GetPosition());
+                
                 return;
             }
-            // (Player) cast.GetActors(Constants.PLAYER1)[0];
-            // (Player) cast.GetActors(Constants.PLAYER2)[0];
+            
             
         }
         private Raylib_cs.Rectangle getPlayerRectangle(Player player){
