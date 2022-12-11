@@ -58,9 +58,11 @@ namespace Tag.Game.Scripting
                     player1.SetBoost(Constants.NOBOOST);
                     player1.SetIsIt(true);
                     player2.SetIsIt(false);
+                    player1.SetColor(Constants.RED);
                 }
                 else
                 {
+                    player1.SetColor(Constants.WHITE);
                     player1.SetFrozenTime(player1.GetFrozenTime() - 1);
                 }
             }
@@ -118,10 +120,12 @@ namespace Tag.Game.Scripting
                     player2.SetBoost(Constants.NOBOOST);
                     player2.SetIsIt(true);
                     player1.SetIsIt(false);
+                    player2.SetColor(Constants.BLUE);
                 }
                 else
                 {
                     player2.SetFrozenTime(player1.GetFrozenTime() - 1);
+                    player2.SetColor(Constants.WHITE);
                 }
             }
 
