@@ -27,68 +27,87 @@ namespace Tag.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
+            int isItSpeed1 = 2;
+            int isItSpeed2 = 2;
+
             Player player1 = (Player)cast.GetFirstActor("player1");
             player1.SetVelocity(new Point(0,0));
             // left
-            if (_keyboardService.IsKeyDown("a"))
+            if (player1.GetBoost() == "none")
             {
-                _direction = new Point(-Constants.CELL_SIZE, 0);
-                player1.SetVelocity(_direction);
+                if (player1.GetItStatus() == false)
+                {
+                    isItSpeed1 = 0;
+                }
+
+                if (_keyboardService.IsKeyDown("a"))
+                {
+                    _direction = new Point(-Constants.CELL_SIZE - isItSpeed1, 0);
+                    player1.SetVelocity(_direction);
+                }
+
+                // right
+                if (_keyboardService.IsKeyDown("d"))
+                {
+                    _direction = new Point(Constants.CELL_SIZE + isItSpeed1, 0);
+                    player1.SetVelocity(_direction);
+                }
+
+                // up
+                if (_keyboardService.IsKeyDown("w"))
+                {
+                    _direction = new Point(0, -Constants.CELL_SIZE - isItSpeed1);
+                    player1.SetVelocity(_direction);
+                }
+
+                // down
+                if (_keyboardService.IsKeyDown("s"))
+                {
+                    _direction = new Point(0, Constants.CELL_SIZE + isItSpeed1);
+                    player1.SetVelocity(_direction);
+                }
             }
 
-            // right
-            if (_keyboardService.IsKeyDown("d"))
-            {
-                _direction = new Point(Constants.CELL_SIZE, 0);
-                player1.SetVelocity(_direction);
-            }
-
-            // up
-            if (_keyboardService.IsKeyDown("w"))
-            {
-                _direction = new Point(0, -Constants.CELL_SIZE);
-                player1.SetVelocity(_direction);
-            }
-
-            // down
-            if (_keyboardService.IsKeyDown("s"))
-            {
-                _direction = new Point(0, Constants.CELL_SIZE);
-                player1.SetVelocity(_direction);
-            }
             
 
 
             Player player2 = (Player)cast.GetFirstActor("player2");
             player2.SetVelocity(new Point(0,0));
-            // left
-            if (_keyboardService.IsKeyDown("j"))
+            if (player2.GetBoost() == "none")
             {
-                _direction2 = new Point(-Constants.CELL_SIZE, 0);
-                player2.SetVelocity(_direction2);
-            }
+                if (player2.GetItStatus() == false)
+                {
+                    isItSpeed2 = 0;
+                }
 
-            // right
-            if (_keyboardService.IsKeyDown("l"))
-            {
-                _direction2 = new Point(Constants.CELL_SIZE, 0);
-                player2.SetVelocity(_direction2);
-            }
+                // left
+                if (_keyboardService.IsKeyDown("j"))
+                {
+                    _direction2 = new Point(-Constants.CELL_SIZE - isItSpeed2, 0);
+                    player2.SetVelocity(_direction2);
+                }
 
-            // up
-            if (_keyboardService.IsKeyDown("i"))
-            {
-                _direction2 = new Point(0, -Constants.CELL_SIZE);
-                player2.SetVelocity(_direction2);
-            }
+                // right
+                if (_keyboardService.IsKeyDown("l"))
+                {
+                    _direction2 = new Point(Constants.CELL_SIZE + isItSpeed2, 0);
+                    player2.SetVelocity(_direction2);
+                }
 
-            // down
-            if (_keyboardService.IsKeyDown("k"))
-            {
-                _direction2 = new Point(0, Constants.CELL_SIZE);
-                player2.SetVelocity(_direction2);
-            }
+                // up
+                if (_keyboardService.IsKeyDown("i"))
+                {
+                    _direction2 = new Point(0, -Constants.CELL_SIZE - isItSpeed2);
+                    player2.SetVelocity(_direction2);
+                }
 
+                // down
+                if (_keyboardService.IsKeyDown("k"))
+                {
+                    _direction2 = new Point(0, Constants.CELL_SIZE + isItSpeed2);
+                    player2.SetVelocity(_direction2);
+                }
+            }
         }
     }
 }
