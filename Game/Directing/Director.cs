@@ -13,6 +13,7 @@ namespace Tag.Game.Directing
     /// </summary>
     public class Director
     {
+        
         private VideoService _videoService = null;
 
         /// <summary>
@@ -35,12 +36,14 @@ namespace Tag.Game.Directing
 
 
             // This Script Execution only happens once.
-            ExecuteActions(Constants.INITIALIZE, cast, script);
+           
+           
 
             while (_videoService.IsWindowOpen())
             {
                 // These Script Executions happen every tick.
                 ExecuteActions(Constants.INPUT, cast, script);
+                ExecuteActions(Constants.INITIALIZE, cast, script);
                 // <TESTING>
                 int x = 100;
                 int y = 100;
@@ -49,9 +52,12 @@ namespace Tag.Game.Directing
                 Raylib_cs.Color color = Raylib_cs.Color.WHITE;
                 Raylib.BeginDrawing();
                 Raylib.DrawRectangle(x, y, width, height, color);
+
+                 
                 // <TESTING/>
                 ExecuteActions(Constants.UPDATE, cast, script);
                 ExecuteActions(Constants.OUTPUT, cast, script);
+                
             }
             _videoService.CloseWindow();
         }
