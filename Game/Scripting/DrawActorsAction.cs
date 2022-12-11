@@ -24,12 +24,8 @@ namespace Tag.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Player player1 = (Player)cast.GetFirstActor("player1");
-            
-            Player player2 = (Player)cast.GetFirstActor("player2");
-            
-
-
+            Player player1 = (Player)cast.GetFirstActor(Constants.PLAYER1);
+            Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
             
             _videoService.ClearBuffer();
             _videoService.DrawActor(player1);
