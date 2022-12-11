@@ -17,13 +17,13 @@ namespace Tag.Game.Scripting
 
             if ((player1.GetPosition().GetX()+Constants.CELL_SIZE/2 >= player2.GetPosition().GetX()
                  && player1.GetPosition().GetX()+Constants.CELL_SIZE/2 <= player2.GetPosition().GetX()+Constants.CELL_SIZE)
-                ||
+                &&
                 (player1.GetPosition().GetY()+Constants.CELL_SIZE/2 >= player2.GetPosition().GetY()
                  && player1.GetPosition().GetY()+Constants.CELL_SIZE/2 <= player2.GetPosition().GetY()+Constants.CELL_SIZE)
                 ||
                 (player2.GetPosition().GetX()+Constants.CELL_SIZE/2 >= player1.GetPosition().GetX()
                  && player2.GetPosition().GetX()+Constants.CELL_SIZE/2 <= player1.GetPosition().GetX()+Constants.CELL_SIZE)
-                ||
+                &&
                 (player2.GetPosition().GetY()+Constants.CELL_SIZE/2 >= player1.GetPosition().GetY()
                  && player2.GetPosition().GetY()+Constants.CELL_SIZE/2 <= player1.GetPosition().GetY()+Constants.CELL_SIZE)
                )

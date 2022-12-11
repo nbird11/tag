@@ -5,7 +5,7 @@ namespace Tag.Game.Casting
     public class SpeedPowerup : Actor
     {
         // ATTRIBUTES
-        
+        private int _freezeSeconds = 2;
 
         // CONSTRUCTOR
         public SpeedPowerup()
@@ -24,6 +24,11 @@ namespace Tag.Game.Casting
             Point position = new Point(x, y);
             position = position.Scale(Constants.CELL_SIZE);
             SetPosition(position);
+        }
+
+        public void FreezePlayer(Player player)
+        {
+            player.SetFrozenTime(Constants.FRAME_RATE * _freezeSeconds);
         }
         
 

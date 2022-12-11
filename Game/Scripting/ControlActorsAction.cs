@@ -33,10 +33,10 @@ namespace Tag.Game.Scripting
             int boostSpeed1;
             int boostSpeed2;
 
-            Player player1 = (Player)cast.GetFirstActor("player1");
+            Player player1 = (Player)cast.GetFirstActor(Constants.PLAYER1);
             player1.SetVelocity(new Point(0,0));
 
-            Player player2 = (Player)cast.GetFirstActor("player2");
+            Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
             player2.SetVelocity(new Point(0,0));
 
             // Player 1
@@ -110,12 +110,14 @@ namespace Tag.Game.Scripting
                 boostSpeed2 = 2;
             }
 
-            else if (player1.GetBoost() == Constants.FREEZE)
+            else if (player2.GetBoost() == Constants.FREEZE)
             {
                 boostSpeed2 = 0;
                 if (player2.GetFrozenTime() <= 0)
                 {
                     player2.SetBoost(Constants.NOBOOST);
+                    player2.SetIsIt(true);
+                    player1.SetIsIt(false);
                 }
                 else
                 {

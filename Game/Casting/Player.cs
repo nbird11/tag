@@ -40,6 +40,10 @@ namespace Tag.Game.Casting
             return _oldPos;
         }
 
+        public void setOldPos(Point position){
+            this._oldPos = position;
+        }
+
         public void SetBoost(string boostType)
         {
             _boost = boostType;
