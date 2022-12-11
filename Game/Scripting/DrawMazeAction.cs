@@ -12,7 +12,7 @@ namespace Tag.Game.Scripting
     /// </summary>
     public class DrawMazeAction : Action
     {
-        private VideoService _videoService;
+        //private VideoService _videoService;
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
