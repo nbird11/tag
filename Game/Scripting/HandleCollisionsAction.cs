@@ -42,7 +42,6 @@ namespace Tag.Game.Scripting
                 if (Raylib.CheckCollisionRecs(player_size2, wall)){
                     int newY = ResetVerticalPos((Player) cast.GetActors(Constants.PLAYER2)[0], wall);
                     int newX = ResetHorizontalPos((Player) cast.GetActors(Constants.PLAYER2)[0], wall);
-                    
                     Point position = new Point(newX, newY);
                     cast.GetActors(Constants.PLAYER2)[0].SetPosition(position);
                 }
