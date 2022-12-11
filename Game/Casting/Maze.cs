@@ -38,7 +38,7 @@ namespace Tag.Game.Casting
             foreach(Block block in _maze)
             {
                 BeginDrawing();
-                DrawRectangle((int) block.xCoordinate, (int) block.yCoordinate, (int) block.length, (int) block.height, WHITE);
+                DrawRectangle((int) block.xCoordinate, (int) block.yCoordinate, (int) block.length, (int) block.height, DARKGREEN);
 
             }
         }

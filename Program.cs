@@ -7,7 +7,7 @@ using Tag.Game.Services;
 namespace Tag
 {
     public class Program
-    {      
+    {
         public static void Main(string[] args)
         {
             // ADD CAST
@@ -20,8 +20,8 @@ namespace Tag
                 new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
                 new List<float> {100.000000f, 10.000000f, 200.0f, 50.0f},
                 new List<float> {200.000000f, 200.000000f, 200.481277f, 50.323700f},
-                new List<float> {800.0f, 480.0f, 200.0f, 50.0f},
-                new List<float> {800.0f, 10.0f, 200.0f, 50.0f}
+                new List<float> {700.0f, 480.0f, 200.0f, 50.0f},
+                new List<float> {700.0f, 10.0f, 200.0f, 50.0f}
             };
             
             cast.AddActor(Constants.MAZE, new Maze(obstacleList));     
