@@ -17,17 +17,18 @@ namespace Tag.Game.Scripting
             Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
             if (player1.GetBoost() != Constants.FREEZE && player2.GetBoost() != Constants.FREEZE)
             {
-                if ((player1.GetPosition().GetX()+Constants.CELL_SIZE/2 >= player2.GetPosition().GetX()
-                    && player1.GetPosition().GetX()+Constants.CELL_SIZE/2 <= player2.GetPosition().GetX()+Constants.CELL_SIZE)
+                int playerWidth = player1.GetFontSize();
+                if ((player1.GetPosition().GetX()+playerWidth/2 >= player2.GetPosition().GetX()
+                    && player1.GetPosition().GetX()+playerWidth/2 <= player2.GetPosition().GetX()+playerWidth)
                     &&
-                    (player1.GetPosition().GetY()+Constants.CELL_SIZE/2 >= player2.GetPosition().GetY()
-                    && player1.GetPosition().GetY()+Constants.CELL_SIZE/2 <= player2.GetPosition().GetY()+Constants.CELL_SIZE)
+                    (player1.GetPosition().GetY()+playerWidth/2 >= player2.GetPosition().GetY()
+                    && player1.GetPosition().GetY()+playerWidth/2 <= player2.GetPosition().GetY()+playerWidth)
                     ||
-                    (player2.GetPosition().GetX()+Constants.CELL_SIZE/2 >= player1.GetPosition().GetX()
-                    && player2.GetPosition().GetX()+Constants.CELL_SIZE/2 <= player1.GetPosition().GetX()+Constants.CELL_SIZE)
+                    (player2.GetPosition().GetX()+playerWidth/2 >= player1.GetPosition().GetX()
+                    && player2.GetPosition().GetX()+playerWidth/2 <= player1.GetPosition().GetX()+playerWidth)
                     &&
-                    (player2.GetPosition().GetY()+Constants.CELL_SIZE/2 >= player1.GetPosition().GetY()
-                    && player2.GetPosition().GetY()+Constants.CELL_SIZE/2 <= player1.GetPosition().GetY()+Constants.CELL_SIZE)
+                    (player2.GetPosition().GetY()+playerWidth/2 >= player1.GetPosition().GetY()
+                    && player2.GetPosition().GetY()+playerWidth/2 <= player1.GetPosition().GetY()+playerWidth)
                 )
                 {
                     if (player1.GetItStatus())
