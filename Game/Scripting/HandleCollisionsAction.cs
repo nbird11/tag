@@ -17,8 +17,8 @@ namespace Tag.Game.Scripting
             foreach (Block wall in maze._maze){
                 block.x = wall.xCoordinate;
                 block.y = wall.yCoordinate;
-                block.width = wall.height;
-                block.height = wall.length;
+                block.width = wall.length;
+                block.height = wall.height;
                 rectangles.Add(block);
             }
             return;
