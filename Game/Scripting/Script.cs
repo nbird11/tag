@@ -66,6 +66,5 @@ namespace Tag.Game.Scripting
                 _actions[group].Remove(action);
             }
         }
-
     }
 }

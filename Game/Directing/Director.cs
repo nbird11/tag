@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Tag.Game.Services;
 using Tag.Game.Casting;
 using Tag.Game.Scripting;
-using Raylib_cs;
 
 namespace Tag.Game.Directing
 {
@@ -13,7 +12,6 @@ namespace Tag.Game.Directing
     /// </summary>
     public class Director
     {
-        
         private VideoService _videoService = null;
 
         /// <summary>
@@ -33,29 +31,13 @@ namespace Tag.Game.Directing
         public void StartGame(Cast cast, Script script)
         {
             _videoService.OpenWindow();
-
-
-            // This Script Execution only happens once.
-           
-           
-
             while (_videoService.IsWindowOpen())
             {
                 // These Script Executions happen every tick.
-                ExecuteActions(Constants.INPUT, cast, script);
                 ExecuteActions(Constants.INITIALIZE, cast, script);
-                // <TESTING>
-                // int x = 100;
-                // int y = 100;
-                // int width = 100;
-                // int height = 100;
-                // Raylib_cs.Color color = Raylib_cs.Color.WHITE;
-                // Raylib.BeginDrawing();
-                // Raylib.DrawRectangle(x, y, width, height, color);
-                // <TESTING/>
+                ExecuteActions(Constants.INPUT, cast, script);
                 ExecuteActions(Constants.UPDATE, cast, script);
                 ExecuteActions(Constants.OUTPUT, cast, script);
-                
             }
             _videoService.CloseWindow();
         }

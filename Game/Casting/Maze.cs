@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using static Raylib_cs.Raylib;
-using Raylib_cs;
 using static Raylib_cs.Color;
 
 namespace Tag.Game.Casting
@@ -15,13 +13,7 @@ namespace Tag.Game.Casting
     /// </summary>
     public class Maze : Actor
     {
-        //attributes
         public List<Block> _maze = new List<Block>();
-    
-        
-
-
-        //Methods
 
         public Maze(List<List<float>> obstacleList)
         {
@@ -42,15 +34,7 @@ namespace Tag.Game.Casting
 
             }
         }
-
-        //
-            
-        }
-
-
-
-
-        
-        }
+    }
+}
 
     

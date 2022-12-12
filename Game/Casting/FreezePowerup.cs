@@ -9,7 +9,5 @@ namespace Tag.Game.Casting
 
         // METHODS
         
-        
-
     }
 }

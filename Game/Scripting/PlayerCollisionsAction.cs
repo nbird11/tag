@@ -1,5 +1,4 @@
 using Tag.Game.Casting;
-using Raylib_cs;
 
 namespace Tag.Game.Scripting
 {
@@ -9,7 +8,6 @@ namespace Tag.Game.Scripting
 
         public PlayerCollisionsAction()
         {
-
         }
 
         public void Execute(Cast cast, Script script)
@@ -41,7 +39,6 @@ namespace Tag.Game.Scripting
                         this.FreezePlayer(player1);
                         player1.SetBoost(Constants.FREEZE);
                     }
-
                 }
             }
         }

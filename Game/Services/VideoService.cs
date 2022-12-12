@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 using Raylib_cs;
 using Tag.Game.Casting;
 
@@ -129,6 +128,5 @@ namespace Tag.Game.Services
             int a = color.GetAlpha();
             return new Raylib_cs.Color(r, g, b, a);
         }
-
     }
 }

@@ -4,8 +4,6 @@ namespace Tag.Game.Casting
 {
     public class SpeedPowerup : Actor
     {
-        // ATTRIBUTES
-        
 
         // CONSTRUCTOR
         public SpeedPowerup(Cast cast)
@@ -65,7 +63,5 @@ namespace Tag.Game.Casting
             position = position.Scale(Constants.CELL_SIZE);
             SetPosition(position);
         }
-        
-
     }
 }

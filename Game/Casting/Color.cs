@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 
 namespace Tag.Game.Casting
 {
@@ -74,7 +72,5 @@ namespace Tag.Game.Casting
             rayColor.a = (byte) this.GetAlpha();
             return rayColor;
         }
-
-
     }
 }

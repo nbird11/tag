@@ -1,6 +1,3 @@
-using System;
-using Raylib_cs;
-
 
 namespace Tag.Game.Casting
 {
@@ -73,9 +70,5 @@ namespace Tag.Game.Casting
         {
             _frozenTime = ticks;
         }
-
     }
-
-
-
 }

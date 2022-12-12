@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Raylib_cs;
-using Tag.Game.Casting;
 
 
 namespace Tag.Game.Services
@@ -13,8 +12,7 @@ namespace Tag.Game.Services
     /// </summary>
     public class KeyboardService
     {
-        private Dictionary<string, KeyboardKey> _keys
-                = new Dictionary<string, KeyboardKey>();
+        private Dictionary<string, KeyboardKey> _keys = new Dictionary<string, KeyboardKey>();
 
         /// <summary>
         /// Constructs a new instance of KeyboardService using the given cell size.
@@ -52,6 +50,5 @@ namespace Tag.Game.Services
             KeyboardKey raylibKey = _keys[key.ToLower()];
             return Raylib.IsKeyUp(raylibKey);
         }
-
     }
 }

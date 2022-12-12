@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using Tag;
 using Tag.Game.Casting;
 using Raylib_cs;
-using static Raylib_cs.Raylib;
-using static Raylib_cs.Color;
-
 
 namespace Tag.Game.Scripting 
 {

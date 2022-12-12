@@ -1,6 +1,5 @@
 using System;
 
-
 namespace Tag.Game.Casting
 {
     /// <summary>
@@ -153,6 +152,5 @@ namespace Tag.Game.Casting
             }
             this._velocity = velocity;
         }
-
     }
 }
