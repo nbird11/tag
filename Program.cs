@@ -18,7 +18,7 @@ namespace Tag
 
             cast.AddActor(Constants.MESSAGE, new Actor());
             Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
-            message.SetPosition(new Point(108,20));
+            message.SetPosition(new Point(25,20));
             message.SetFontSize(Constants.FONT_SIZE * 2);
             message.SetColor(Constants.RED);
             message.SetText("RED IS IT!");
