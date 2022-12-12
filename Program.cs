@@ -15,6 +15,13 @@ namespace Tag
             cast.AddActor(Constants.PLAYER1, new Player(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2), Constants.RED, true));
             cast.AddActor(Constants.PLAYER2, new Player(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2), Constants.BLUE, false));
             
+            cast.AddActor(Constants.MESSAGE, new Actor());
+            Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
+            message.SetPosition(new Point(108,20));
+            message.SetFontSize(Constants.FONT_SIZE * 2);
+            message.SetColor(Constants.RED);
+            message.SetText("RED IS IT!");
+
             List<List<float>> obstacleList = new List<List<float>>()
             {
                 new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},

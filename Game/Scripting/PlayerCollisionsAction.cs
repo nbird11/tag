@@ -12,6 +12,7 @@ namespace Tag.Game.Scripting
 
         public void Execute(Cast cast, Script script)
         {
+            Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
             Player player1 = (Player)cast.GetFirstActor(Constants.PLAYER1);
             Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
             if (player1.GetBoost() != Constants.FREEZE && player2.GetBoost() != Constants.FREEZE)
@@ -33,11 +34,15 @@ namespace Tag.Game.Scripting
                     {
                         this.FreezePlayer(player2);
                         player2.SetBoost(Constants.FREEZE);
+                        message.SetColor(Constants.BLUE);
+                        message.SetText("BLUE IS IT!");
                     }
                     if (player2.GetItStatus())
                     {
                         this.FreezePlayer(player1);
                         player1.SetBoost(Constants.FREEZE);
+                        message.SetColor(Constants.RED);
+                        message.SetText("RED IS IT!");
                     }
                 }
             }

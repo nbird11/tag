@@ -25,10 +25,12 @@ namespace Tag.Game.Scripting
         {
             Player player1 = (Player)cast.GetFirstActor(Constants.PLAYER1);
             Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
+            Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
             
             _videoService.ClearBuffer();
             _videoService.DrawActor(player1);
             _videoService.DrawActor(player2);
+            _videoService.DrawActor(message);
             _videoService.FlushBuffer();
         }
     }
