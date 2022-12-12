@@ -1,5 +1,6 @@
 using Tag.Game.Casting;
 using Tag.Game.Services;
+using System.Collections.Generic;
 
 
 namespace Tag.Game.Scripting
@@ -27,11 +28,9 @@ namespace Tag.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            int isItSpeed1 = 2;
-            int isItSpeed2 = 2;
 
-            int boostSpeed1;
-            int boostSpeed2;
+            List<string> p1Controls = new List<string>() {"a","d","w","s"};
+            List<string> p2Controls = new List<string>() {"j","l","i","k"};
 
             Player player1 = (Player)cast.GetFirstActor(Constants.PLAYER1);
             player1.SetVelocity(new Point(0,0));
@@ -39,127 +38,75 @@ namespace Tag.Game.Scripting
             Player player2 = (Player)cast.GetFirstActor(Constants.PLAYER2);
             player2.SetVelocity(new Point(0,0));
 
-            // Player 1
-            if (player1.GetItStatus() == false)
+            ControlPlayer(player1, player2, p1Controls);
+            ControlPlayer(player2, player1, p2Controls);
+        }
+
+        public void ControlPlayer(Player player, Player secondaryPlayer, List<string> control)
+        {
+            int isItSpeed = 2;
+            int boostSpeed = 1;
+
+            if (player.GetItStatus() == false)
             {
-                isItSpeed1 = 0;
+                isItSpeed = 0;
             }
 
-            if (player1.GetBoost() == Constants.SPEED)
+            if (player.GetBoost() == Constants.SPEED)
             {
-                boostSpeed1 = 2;
+                player.SetColor(Constants.YELLOW);
+                boostSpeed = 2;
             }
 
-            else if (player1.GetBoost() == Constants.FREEZE)
+            else if (player.GetBoost() == Constants.FREEZE)
             {
-                boostSpeed1 = 0;
-                if (player1.GetFrozenTime() <= 0)
+                boostSpeed = 0;
+                if (player.GetFrozenTime() <= 0)
                 {
-                    player1.SetBoost(Constants.NOBOOST);
-                    player1.SetIsIt(true);
-                    player2.SetIsIt(false);
-                    player1.SetColor(Constants.RED);
+                    player.SetBoost(Constants.NOBOOST);
+                    player.SetIsIt(true);
+                    secondaryPlayer.SetIsIt(false);
+                    player.BackToDefaultColor();
                 }
                 else
                 {
-                    player1.SetColor(Constants.WHITE);
-                    player1.SetFrozenTime(player1.GetFrozenTime() - 1);
+                    player.SetColor(Constants.WHITE);
+                    player.SetFrozenTime(player.GetFrozenTime() - 1);
                 }
             }
 
             else
             {
-                boostSpeed1 = 1;
+                boostSpeed = 1;
+                player.BackToDefaultColor();
             }
 
             //left
-            if (_keyboardService.IsKeyDown("a"))
+            if (_keyboardService.IsKeyDown(control[0]))
             {
-                _direction = new Point((-Constants.CELL_SIZE - isItSpeed1)*boostSpeed1, 0);
-                player1.SetVelocity(_direction);
+                _direction = new Point((-Constants.CELL_SIZE - isItSpeed)*boostSpeed, 0);
+                player.SetVelocity(_direction);
             }
 
             // right
-            if (_keyboardService.IsKeyDown("d"))
+            if (_keyboardService.IsKeyDown(control[1]))
             {
-                _direction = new Point((Constants.CELL_SIZE + isItSpeed1)*boostSpeed1, 0);
-                player1.SetVelocity(_direction);
+                _direction = new Point((Constants.CELL_SIZE + isItSpeed)*boostSpeed, 0);
+                player.SetVelocity(_direction);
             }
 
             // up
-            if (_keyboardService.IsKeyDown("w"))
+            if (_keyboardService.IsKeyDown(control[2]))
             {
-                _direction = new Point(0, (-Constants.CELL_SIZE - isItSpeed1)*boostSpeed1);
-                player1.SetVelocity(_direction);
+                _direction = new Point(0, (-Constants.CELL_SIZE - isItSpeed)*boostSpeed);
+                player.SetVelocity(_direction);
             }
 
             // down
-            if (_keyboardService.IsKeyDown("s"))
+            if (_keyboardService.IsKeyDown(control[3]))
             {
-                _direction = new Point(0, (Constants.CELL_SIZE + isItSpeed1)*boostSpeed1);
-                player1.SetVelocity(_direction);
-            }
-
-            
-            // Player 2
-            if (player2.GetItStatus() == false)
-            {
-                isItSpeed2 = 0;
-            }
-
-            if (player2.GetBoost() == Constants.SPEED)
-            {
-                boostSpeed2 = 2;
-            }
-
-            else if (player2.GetBoost() == Constants.FREEZE)
-            {
-                boostSpeed2 = 0;
-                if (player2.GetFrozenTime() <= 0)
-                {
-                    player2.SetBoost(Constants.NOBOOST);
-                    player2.SetIsIt(true);
-                    player1.SetIsIt(false);
-                    player2.SetColor(Constants.BLUE);
-                }
-                else
-                {
-                    player2.SetFrozenTime(player2.GetFrozenTime() - 1);
-                    player2.SetColor(Constants.WHITE);
-                }
-            }
-
-            else
-            {
-                boostSpeed2 = 1;
-            }
-
-            // left
-            if (_keyboardService.IsKeyDown("j"))
-            {
-                _direction2 = new Point((-Constants.CELL_SIZE - isItSpeed2)*boostSpeed2, 0);
-                player2.SetVelocity(_direction2);
-            }
-
-            // right
-            if (_keyboardService.IsKeyDown("l"))
-            {
-                _direction2 = new Point((Constants.CELL_SIZE + isItSpeed2)*boostSpeed2, 0);
-                player2.SetVelocity(_direction2);
-            }
-
-            // up
-            if (_keyboardService.IsKeyDown("i"))
-            {
-                _direction2 = new Point(0, (-Constants.CELL_SIZE - isItSpeed2)*boostSpeed2);
-                player2.SetVelocity(_direction2);
-            }
-
-            // down
-            if (_keyboardService.IsKeyDown("k"))
-            {
-                _direction2 = new Point(0, (Constants.CELL_SIZE + isItSpeed2)*boostSpeed2);
-                player2.SetVelocity(_direction2);
+                _direction = new Point(0, (Constants.CELL_SIZE + isItSpeed)*boostSpeed);
+                player.SetVelocity(_direction);
             }
         }
     }

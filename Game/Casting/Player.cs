@@ -7,6 +7,7 @@ namespace Tag.Game.Casting
         // ATTRIBUTES
         private Point _oldPos;
         private Point _size = new Point(Constants.CELL_SIZE, Constants.CELL_SIZE);
+        private Color _defaultColor;
         private string _boost;
         private bool _isIt;
         private int _frozenTime;
@@ -20,6 +21,7 @@ namespace Tag.Game.Casting
             this.SetText("O");
             this._isIt = itOrNot;
             this._frozenTime = 0;
+            this._defaultColor = color;
 
             _boost = "none"; // "none" "speed" or "freeze"
             _oldPos = this.GetPosition();
@@ -69,6 +71,11 @@ namespace Tag.Game.Casting
         public void SetFrozenTime(int ticks)
         {
             _frozenTime = ticks;
+        }
+
+        public void BackToDefaultColor()
+        {
+            this.SetColor(_defaultColor);
         }
     }
 }

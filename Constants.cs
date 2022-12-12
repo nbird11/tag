@@ -36,6 +36,7 @@ namespace Tag
         public static string MAZE = "maze";
         public static string BLOCK = "block";
         public static string MESSAGE = "message";
+        public static string BOOST = "boost";
 
         // Boost Constants
         public static string NOBOOST = "none";
