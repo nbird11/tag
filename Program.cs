@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tag.Game.Casting;
 using Tag.Game.Directing;
 using Tag.Game.Scripting;
@@ -18,7 +19,7 @@ namespace Tag
 
             cast.AddActor(Constants.MESSAGE, new Actor());
             Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
-            message.SetPosition(new Point(25,20));
+            message.SetPosition(new Point((Constants.MAX_X / 2) - 100, 20));
             message.SetFontSize(Constants.FONT_SIZE * 2);
             message.SetColor(Constants.RED);
             message.SetText("RED IS IT!");
