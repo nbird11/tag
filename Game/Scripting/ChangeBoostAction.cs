@@ -31,7 +31,7 @@ public class ChangeBoostAction : Action
             bool foundYSpot = false;
             int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
-            int safetyCushion = 10;
+            int safetyCushion = 5;
 
             while (!foundXSpot)
             {
