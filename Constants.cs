@@ -15,7 +15,7 @@ namespace Tag
         public static int MAX_Y = 600;
 
         public static int FRAME_RATE = 60;
-        public static int FONT_SIZE = 15;
+        public static int FONT_SIZE = 30;
         public static string CAPTION = "Tag";
 
         public static Color RED = new Color(255, 0, 0);
