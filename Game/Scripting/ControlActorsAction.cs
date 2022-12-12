@@ -44,9 +44,9 @@ namespace Tag.Game.Scripting
 
         public void ControlPlayer(Player player, Player secondaryPlayer, List<string> control)
         {
-            int baseSpeed = 1;
-            int isItSpeed = 2;
-            int boostSpeed = 1;
+            float baseSpeed = 4f;
+            float isItSpeed = 1f;
+            float boostSpeed = 1f;
 
             if (player.GetItStatus() == false)
             {
@@ -95,28 +95,28 @@ namespace Tag.Game.Scripting
             //left
             if (_keyboardService.IsKeyDown(control[0]))
             {
-                _direction = new Point((-baseSpeed - isItSpeed)*boostSpeed, 0);
+                _direction = new Point((int)((-baseSpeed - isItSpeed)*boostSpeed), 0);
                 player.SetVelocity(_direction);
             }
 
             // right
             if (_keyboardService.IsKeyDown(control[1]))
             {
-                _direction = new Point((baseSpeed + isItSpeed)*boostSpeed, 0);
+                _direction = new Point((int)((baseSpeed + isItSpeed)*boostSpeed), 0);
                 player.SetVelocity(_direction);
             }
 
             // up
             if (_keyboardService.IsKeyDown(control[2]))
             {
-                _direction = new Point(0, (-baseSpeed - isItSpeed)*boostSpeed);
+                _direction = new Point(0, (int)((-baseSpeed - isItSpeed)*boostSpeed));
                 player.SetVelocity(_direction);
             }
 
             // down
             if (_keyboardService.IsKeyDown(control[3]))
             {
-                _direction = new Point(0, (baseSpeed + isItSpeed)*boostSpeed);
+                _direction = new Point(0, (int)((baseSpeed + isItSpeed)*boostSpeed));
                 player.SetVelocity(_direction);
             }
         }
