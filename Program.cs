@@ -25,11 +25,16 @@ namespace Tag
 
             List<List<float>> obstacleList = new List<List<float>>()
             {
-                new List<float> {100.000000f, 480.000000f, 200.000000f, 50.000000f},
-                new List<float> {100.000000f, 10.000000f, 200.0f, 50.0f},
-                new List<float> {200.000000f, 200.000000f, 200.481277f, 50.323700f},
-                new List<float> {700.0f, 480.0f, 200.0f, 50.0f},
-                new List<float> {700.0f, 10.0f, 200.0f, 50.0f}
+                new List<float> {20.000000f, 480.000000f, 200.000000f, 50.000000f},
+                new List<float> {20.000000f, 10.000000f, 200.0f, 50.0f},
+                new List<float> {360.000000f, 400.000000f, 200.481277f, 50.323700f},
+                new List<float> {360.000000f, 100.000000f, 200.481277f, 50.323700f},
+                new List<float> {70.000000f, 300.000000f, 50.481277f, 50.323700f},
+                new List<float> {70.000000f, 200.000000f, 50.481277f, 50.323700f},
+                 new List<float> {750.000000f, 300.000000f, 50.481277f, 50.323700f},
+                new List<float> {750.000000f, 200.000000f, 50.481277f, 50.323700f},
+                new List<float> {650.0f, 480.0f, 200.0f, 50.0f},
+                new List<float> {650.0f, 10.0f, 200.0f, 50.0f}
             };
             
             cast.AddActor(Constants.MAZE, new Maze(obstacleList));     
