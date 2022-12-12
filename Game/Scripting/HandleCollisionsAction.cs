@@ -13,13 +13,8 @@ namespace Tag.Game.Scripting
         List<Raylib_cs.Rectangle> rectangles = new List<Raylib_cs.Rectangle>();
         public HandleCollisionsAction(Maze maze){
         
-            Raylib_cs.Rectangle block = new Raylib_cs.Rectangle();
             foreach (Block wall in maze._maze){
-                block.x = wall.xCoordinate;
-                block.y = wall.yCoordinate;
-                block.width = wall.length;
-                block.height = wall.height;
-                rectangles.Add(block);
+                rectangles.Add(new Raylib_cs.Rectangle(wall.xCoordinate, wall.yCoordinate, wall.length, wall.height));
             }
             return;
         }
@@ -31,30 +26,31 @@ namespace Tag.Game.Scripting
             Player player_1 = (Player) cast.GetFirstActor(Constants.PLAYER1);
             Player player_2 = (Player) cast.GetFirstActor(Constants.PLAYER2);
 
-            foreach (Raylib_cs.Rectangle wall in rectangles){
-                if (Raylib.CheckCollisionRecs(player_size1, wall)){
-                    int newY = ResetVerticalPos(player_1, wall);
-                    int newX = ResetHorizontalPos(player_1, wall);
+            for (int i = 0; i < rectangles.Count; i++)
+            {
+                if (Raylib.CheckCollisionRecs(player_size1, rectangles[i])){
+                    int newY = ResetVerticalPos(player_1, rectangles[i]);
+                    int newX = ResetHorizontalPos(player_1, rectangles[i]);
                     
                     Point position = new Point(newX, newY);
                     player_1.SetPosition(position);
                 }
-                if (Raylib.CheckCollisionRecs(player_size2, wall)){
-                    int newY = ResetVerticalPos(player_2, wall);
-                    int newX = ResetHorizontalPos(player_2, wall);
+                if (Raylib.CheckCollisionRecs(player_size2, rectangles[i])){
+                    int newY = ResetVerticalPos(player_2, rectangles[i]);
+                    int newX = ResetHorizontalPos(player_2, rectangles[i]);
                     
                     Point position = new Point(newX, newY);
                     player_2.SetPosition(position);
                 }
+            }
 
                 player_1.setOldPos(player_1.GetPosition());
                 player_2.setOldPos(player_2.GetPosition());
                 
                 return;
-            }
-            
-            
         }
+            
+            
         private Raylib_cs.Rectangle getPlayerRectangle(Player player){
             Raylib_cs.Rectangle  player_size = new Raylib_cs.Rectangle();
             player_size.x = player.GetPosition().GetX();
