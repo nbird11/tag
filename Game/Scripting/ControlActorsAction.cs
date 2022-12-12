@@ -56,6 +56,16 @@ namespace Tag.Game.Scripting
             {
                 player.SetColor(Constants.YELLOW);
                 boostSpeed = 2;
+                if (player.GetSpeedTime() <= 0)
+                {
+                    player.SetBoost(Constants.NOBOOST);
+                    player.BackToDefaultColor();
+                }
+                else
+                {
+                    player.SetSpeedTime(player.GetSpeedTime() - 1);
+                }
+
             }
 
             else if (player.GetBoost() == Constants.FREEZE)

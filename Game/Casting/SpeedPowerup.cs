@@ -6,11 +6,12 @@ namespace Tag.Game.Casting
     {
 
         // CONSTRUCTOR
-        public SpeedPowerup(Cast cast)
+        public SpeedPowerup()
         {
-            SetText("!");
-            SetColor(Constants.YELLOW);
-            SetPosition(new Point(100,200));
+            this.SetText("*");
+            this.SetFontSize(Constants.FONT_SIZE);
+            this.SetColor(Constants.YELLOW);
+            this.SetPosition(new Point(Constants.MAX_X / 2, Constants.MAX_Y / 2));
         }
 
         // METHODS

@@ -14,7 +14,8 @@ namespace Tag
             Cast cast = new Cast();
             cast.AddActor(Constants.PLAYER1, new Player(new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2), Constants.RED, true));
             cast.AddActor(Constants.PLAYER2, new Player(new Point(Constants.MAX_X * 3 / 4, Constants.MAX_Y / 2), Constants.BLUE, false));
-            
+            cast.AddActor(Constants.BOOST, new SpeedPowerup());
+
             cast.AddActor(Constants.MESSAGE, new Actor());
             Actor message = (Actor)cast.GetFirstActor(Constants.MESSAGE);
             message.SetPosition(new Point(108,20));
@@ -49,6 +50,7 @@ namespace Tag
             script.AddAction(Constants.UPDATE, new MoveActorsAction());
             script.AddAction(Constants.UPDATE, new PlayerCollisionsAction());
             script.AddAction(Constants.UPDATE, new HandleCollisionsAction((Maze) cast.GetFirstActor(Constants.MAZE)));
+            script.AddAction(Constants.UPDATE, new ChangeBoostAction());
             script.AddAction(Constants.OUTPUT, new DrawActorsAction(videoService));
             
             // Start Game

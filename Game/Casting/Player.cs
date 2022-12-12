@@ -11,6 +11,7 @@ namespace Tag.Game.Casting
         private string _boost;
         private bool _isIt;
         private int _frozenTime;
+        private int _speedTime;
 
         // CONTRUCTOR
         public Player(Point start, Color color, bool itOrNot)
@@ -21,6 +22,7 @@ namespace Tag.Game.Casting
             this.SetText("O");
             this._isIt = itOrNot;
             this._frozenTime = 0;
+            this._speedTime = 0;
             this._defaultColor = color;
 
             _boost = "none"; // "none" "speed" or "freeze"
@@ -71,6 +73,16 @@ namespace Tag.Game.Casting
         public void SetFrozenTime(int ticks)
         {
             _frozenTime = ticks;
+        }
+
+        public void SetSpeedTime(int ticks)
+        {
+            _speedTime = ticks;
+        }
+
+        public int GetSpeedTime()
+        {
+            return _speedTime;
         }
 
         public void BackToDefaultColor()
