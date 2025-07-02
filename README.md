@@ -25,15 +25,15 @@ Make sure you have the [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/
 The code source files and directories are organized as follows:
 
 ```plaintext
-/                   (project root directory)
-  +-- Game          (classes source code)
-  | +-- Casting     (main actor object classes)
-  | +-- Directing   (program director class)
-  | +-- Scripting   (script object classes)
-  | +-- Services    (service object classes)
-  +-- Program.cs    (program entry point)
-  +-- README.md     (general info)
-  +-- tag.csproj    (dotnet project file)
+/                 (project root directory)
++-- Game          (classes source code)
+| +-- Casting     (main actor object classes)
+| +-- Directing   (program director class)
+| +-- Scripting   (script object classes)
+| +-- Services    (service object classes)
++-- Program.cs    (program entry point)
++-- README.md     (general info)
++-- tag.csproj    (dotnet project file)
 ```
 
 ### Required Tech
